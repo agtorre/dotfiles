@@ -12,6 +12,9 @@
   with_items:
     - .vimrc
     - .zshrc
+    - .zshrc_local
+    - .zprofile
+    - .zsh_aliases
     - .gitignore
     - .gitconfig
     - .tmux.conf
