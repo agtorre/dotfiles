@@ -30,6 +30,7 @@
     - vim
     - wget
     - zsh
+    - tmux
 
 - name: Change shell to ZSH
   sudo: true
