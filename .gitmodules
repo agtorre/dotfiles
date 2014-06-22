@@ -1,0 +1,7 @@
+[submodule "etc/antigen"]
+	path = etc/antigen
+	url = https://github.com/zsh-users/antigen
+
+[submodule "etc/vim/bundle/Vundle.vim"]
+    path = etc/vim/bundle/Vundle.vim
+    url = https://github.com/gmarik/Vundle.vim

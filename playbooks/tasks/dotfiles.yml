@@ -1,0 +1,23 @@
+---
+- file: path=~/.vim state=directory
+
+- name: Install antigen
+  git: repo=https://github.com/zsh-users/antigen.git dest=~/.antigen
+
+- name: Symlink my dotfiles
+  file: src=~/dotfiles/home/{{ item }}
+        dest=~/{{ item }}
+        state=link
+        force=yes
+  with_items:
+    - .vimrc
+    - .zshrc
+    - .gitignore
+    - .gitconfig
+    - .tmux.conf
+
+- name: Clone Vundle
+  git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+
+- name: Install VIM plugins
+  command: vim +PluginInstall! +qall

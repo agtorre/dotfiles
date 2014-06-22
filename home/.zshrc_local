@@ -1,0 +1,10 @@
+export PORT=3000
+export SSLPORT=3001
+
+alias mysql='mysql --prompt="(\h) > "'
+
+fpath=(~/.dotfiles/zsh_completion $fpath) 
+
+dssh () { 
+        dsh -g $argv[1] -M -c -o -lroot $argv[2,-1]
+}
