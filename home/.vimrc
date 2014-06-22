@@ -1,7 +1,6 @@
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                            VIM Settings                                   |
-" -----------------------------------------------------------------------------  
-
+" -----------------------------------------------------------------------------
 set nocompatible
 let mapleader = ","
 
@@ -45,7 +44,7 @@ set cursorline
 
 " Searching *******************************************************************
 set hlsearch  " highlight search
-set ignorecase " Ignore case when searching 
+set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 
 " Line Wrapping ***************************************************************
@@ -65,43 +64,48 @@ set listchars=trail:.,tab:>-,eol:$
 set nolist
 :noremap <Leader>i :set list!<CR> " Toggle invisible chars
 
+" Whitespace ******************************************************************
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Misc settings ***************************************************************
 set backspace=indent,eol,start
 set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                              Bundles                                      |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 
 " colorshceme
 Plugin 'altercation/vim-colors-solarized'
-call vundle#end() 
+call vundle#end()
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                              colorscheme                                  |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 syntax enable
-set background=dark 
+set background=dark
 "let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    colorscheme solarized
+endif
 
 ""maybe some strangeness? http://sunaku.github.io/vim-256color-bce.html
 "set term=screen-256color
 set t_Co=256 " 256 colors
 
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                              Plug-ins                                     |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 "golang
 filetype off
 filetype plugin indent off
@@ -109,10 +113,10 @@ set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                               Host specific                               |
-" -----------------------------------------------------------------------------  
-  
+" -----------------------------------------------------------------------------
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif

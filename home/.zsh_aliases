@@ -1,0 +1,4 @@
+alias mysql='mysql --prompt="(\h) > "'
+dssh () {
+        dsh -g $argv[1] -M -c -o -lroot $argv[2,-1]
+}
