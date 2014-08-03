@@ -4,10 +4,6 @@
         user={{ ansible_ssh_user }}
         job="cd ~/dotfiles; git pull; ansible-playbook -i inventory vagrant.yml"
 
-- name: Add APT repo for fasd
-  sudo: true
-  apt_repository: repo='ppa:fcwu-tw/ppa' state=present
-
 - name: Update APT cache
   sudo: true
   apt: update_cache=yes
@@ -16,17 +12,14 @@
   sudo: true
   apt: name={{ item }} state=latest
   with_items:
-    - ack
+    - ack-grep
     - bash
     - curl
-    - fasd
     - git
     - nmap
     - node
-    - most
     - python
     - python-pip
-    - python3
     - vim
     - wget
     - zsh

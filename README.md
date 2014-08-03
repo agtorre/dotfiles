@@ -9,13 +9,13 @@ Inspired by https://github.com/palcu/dotfiles
 
 
 ## Setup
-From a new Vagrant machine:
+From a new Vagrant machine or fresh ubuntu image
 
 ```bash
 sudo apt-get update
-sudo apt-get install python-pip
+sudo apt-get install git python-pip python-dev
 sudo pip install ansible
-git clone htts://github.com/agtorre/dotfiles
+cd ~/; git clone git@github.com:agtorre/dotfiles.git
 cd ~/dotfiles/playbooks
-ansible-playbook -i inventory vagrant.yml
+ansible-playbook -i inventory vagrant.yml --ask-sudo-pass
 ```
