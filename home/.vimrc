@@ -83,6 +83,13 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
+"go
+Plugin 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+
+"syntax
+Plugin 'scrooloose/syntastic'
+
 " colorshceme
 Plugin 'altercation/vim-colors-solarized'
 call vundle#end()

@@ -24,6 +24,8 @@
     - wget
     - zsh
     - tmux
+    - mercurial
+    - bison
 
 - name: Change shell to ZSH
   sudo: true
