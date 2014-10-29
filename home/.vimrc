@@ -86,12 +86,14 @@ Plugin 'gmarik/Vundle.vim'
 "go
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 0
 
 "syntax
 Plugin 'scrooloose/syntastic'
 
 " colorshceme
 Plugin 'altercation/vim-colors-solarized'
+"Plugin 'cocopon/iceberg.vim'
 call vundle#end()
 
 " -----------------------------------------------------------------------------
@@ -104,6 +106,9 @@ let g:solarized_termtrans=1
 if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
     colorscheme solarized
 endif
+"if filereadable(expand("~/.vim/bundle/iceberg.vim/colors/iceberg.vim"))
+"    colorscheme iceberg
+"endif
 
 ""maybe some strangeness? http://sunaku.github.io/vim-256color-bce.html
 "set term=screen-256color
