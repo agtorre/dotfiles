@@ -23,6 +23,12 @@ noremap <Leader><Right> <C-w><Right>
 noremap <Leader><Up> <C-w><Up>
 noremap <Leader><Down> <C-w><Down>
 
+"my maps
+if bufwinnr(1)
+    map + <C-W>20<C->>
+    map - <C-W>20<C-<>
+endif
+
 " Indenting *******************************************************************
 " Use 4 spaces
 set softtabstop=4
