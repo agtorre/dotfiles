@@ -1,12 +1,12 @@
 ---
 - name: get the weemux repo
-  sudo: true
+  become: yes
   git: repo=https://github.com/zolrath/wemux.git dest=/usr/local/share/wemux force=yes
 
 - name: install wemux
-  sudo: true
+  become: yes
   file: src=/usr/local/share/wemux/wemux dest=/usr/local/bin/wemux state=link
 
 - name: copy config
-  sudo: true
+  become: yes
   copy: src=~/dotfiles/configs/wemux.conf dest=/usr/local/etc/wemux.conf

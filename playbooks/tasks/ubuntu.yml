@@ -1,15 +1,10 @@
 ---
-- name: Add a crontab that runs the tasks daily
-  cron: name="run ansible" special_time=daily state=present
-        user={{ ansible_ssh_user }}
-        job="cd ~/dotfiles; git pull; ansible-playbook -i inventory vagrant.yml"
-
 - name: Update APT cache
-  sudo: true
+  become: yes
   apt: update_cache=yes
 
 - name: Install libraries using APT
-  sudo: true
+  become: yes
   apt: name={{ item }} state=latest
   with_items:
     - ack-grep
@@ -17,7 +12,6 @@
     - curl
     - git
     - nmap
-    - node
     - python
     - python-pip
     - vim
@@ -28,5 +22,5 @@
     - bison
 
 - name: Change shell to ZSH
-  sudo: true
+  become: yes
   user: shell=/bin/zsh name={{ ansible_ssh_user }}
